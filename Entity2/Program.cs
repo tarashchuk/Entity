@@ -42,31 +42,31 @@ namespace Entity2
                     {
                         
                         Console.WriteLine("КОМПАНИЯ:");
-                        string company_name = Console.ReadLine();
-                        if (company_name == db.Companies.FirstOrDefault().Name)
+                        string companyName = Console.ReadLine();
+                        if (companyName == db.Companies.FirstOrDefault().Name)
                         {
                             Console.WriteLine("Такая компания существует, добавте телефон");
-                            Company company = db.Companies.Where(c => c.Name == company_name).FirstOrDefault();
+                            Company company = db.Companies.Where(c => c.Name == companyName).FirstOrDefault();
                             Console.WriteLine("Name:");
-                            string phone_name = Console.ReadLine();
+                            string phoneName = Console.ReadLine();
                             Console.WriteLine("Price:");
-                            int phone_price = Convert.ToInt32(Console.ReadLine());
-                            Phone phone = new Phone { Name = phone_name, Price = phone_price, Company = company };
+                            int phonePrice = Convert.ToInt32(Console.ReadLine());
+                            Phone phone = new Phone { Name = phoneName, Price = phonePrice, Company = company };
                             db.Phones.Add(phone);
                             db.SaveChanges();
 
                         }
                         else
                         {
-                            Company company = new Company { Name = company_name };
+                            Company company = new Company { Name = companyName };
                             db.Companies.Add(company);
                             db.SaveChanges();
                             Console.WriteLine(" Компания добавлена, добавте телефон");
                             Console.WriteLine("Name:");
-                            string phone_name = Console.ReadLine();
+                            string phoneName = Console.ReadLine();
                             Console.WriteLine("Price:");
-                            int phone_price = Convert.ToInt32(Console.ReadLine());
-                            Phone phone = new Phone { Name = phone_name, Price =phone_price, Company = company };
+                            int phonePrice = Convert.ToInt32(Console.ReadLine());
+                            Phone phone = new Phone { Name = phoneName, Price = phonePrice, Company = company };
                             db.Phones.Add(phone);
                             db.SaveChanges();
                         }
